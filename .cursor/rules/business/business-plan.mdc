@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Structure:
+Point of Sale (POS) Screen:
+
+Allows users to create orders with menu items similar to uber eats.
+
+Orders Screen:
+
+Displays all orders, grouped by state and allows editing order state.
+
+Kitchen Screen:
+
+Lists all orders that match the state mentioned under Kitchen Screen on @business-logic.mdc. 
+Orders can be moved between these states on this screen.
+
+Requirements:
+Optimized for tablet interfaces.
+
+Real-time order status updates.
+
+
+
+Intuitive navigation across screens.

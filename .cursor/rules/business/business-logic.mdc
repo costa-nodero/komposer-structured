@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Business Logic
+
+## Order States
+Orders are tracked by the following states:
+- Placed
+- In Progress
+- Ready To Serve
+- Completed
+
+## POS Screen
+- User can tap on a button to add a menu item to an order.
+- Some menu items will show an extra screen to configure the menu item, similar to Uber Eats.
+- An editable, auto-incrementing order number will be added to each order.
+- Optional: Add a name to the order.
+
+## Orders Screen
+- Group ordering of states is: Ready To Serve, Placed, In Progress, Completed.
+- Orders can be fully edited on this screen.
+
+## Kitchen Screen
+
+
+- Show and manage the state for orders that are: Placed, In Progress, or Ready To Serve.

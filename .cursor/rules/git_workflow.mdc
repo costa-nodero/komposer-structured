@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Git Workflow Guidelines
+
+1.  **Main Branches:**
+    *   `main` (or `master`): Production-ready. No direct commits. Merges from `develop` or `release/*`.
+    *   `develop`: Primary integration branch for ongoing development.
+2.  **Supporting Branches:**
+    *   `feature/*`: Branched from `develop`, merged back to `develop` via PR.
+    *   `bugfix/*`: Branched from `develop` (or `main` for critical), merged back to `develop` (and `main` if needed) via PR.
+    *   `release/*`: Branched from `develop`, merged to `main` and `develop`.
+    *   `hotfix/*`: Branched from `main`, merged to `main` and `develop`.
+3.  **Pull Requests (PRs):**
+    *   Mandatory for merges into `develop` and `main`.
+    *   Require code review (even self-review).
+    *   Link to issues, provide clear descriptions.
+    *   Require passing CI checks (lint, test, build).
+4.  **Commit Messages:**
+    *   Use **Conventional Commits** format (`type(scope): subject`).
+    *   Types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `perf`, `test`.
+    *   Keep commits small and focused.
+5.  **General Practices:**
+    *   Use `git pull --rebase` regularly on feature branches.
+    *   Resolve conflicts locally before pushing.
+    *   Delete feature branches after merging.
+
+
