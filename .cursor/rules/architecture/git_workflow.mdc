@@ -1,5 +1,5 @@
 ---
-description: 
+description: Git or code repo
 globs: 
 alwaysApply: false
 ---
@@ -26,5 +26,6 @@ alwaysApply: false
     *   Use `git pull --rebase` regularly on feature branches.
     *   Resolve conflicts locally before pushing.
     *   Delete feature branches after merging.
+
 
 

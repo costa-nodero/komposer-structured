@@ -1,0 +1,32 @@
+---
+description: Code changes for API or Firebase Realtime Database
+globs: 
+alwaysApply: false
+---
+# API Interaction (Firebase Realtime Database) Guidelines
+
+1.  **Initialization & Configuration:**
+    *   Config: `src/config/firebase_config.ts` (add to `.gitignore` if sensitive).
+    *   Initialization: `src/lib/firebase_service.ts` (or `src/lib/firebase/firebase_service.ts`), exporting initialized `database`.
+2.  **Service Structure:**
+    *   Dedicated modules in `src/lib/firebase/` for data entities (e.g., `order_service.ts`).
+    *   Services import `database` and contain CRUD/listener functions.
+3.  **Data Modeling & References:**
+    *   Plan JSON structure carefully; denormalization is common.
+    *   Use `ref()` from `firebase/database`. Store common paths as constants.
+4.  **CRUD Operations & Real-time Listeners:**
+    *   Use `set()`, `push()`, `get()`, `update()`, `remove()`.
+    *   Real-time: `onValue()`. Functions setting up listeners should return the `unsubscribe` function.
+    *   **Crucially, always call the unsubscribe function** (e.g., in `useEffect` cleanup or store cleanup logic) to prevent memory leaks.
+    *   All service functions should be `async` and handle Promises.
+5.  **Error Handling:**
+    *   Use `try...catch` in service functions.
+    *   Log errors and transform/re-throw for calling code (e.g., Zustand stores) to handle.
+6.  **Type Safety:**
+    *   Use TypeScript types from `src/types/` for data sent/received.
+    *   Use type assertions (`as YourType`) cautiously after `snapshot.val()`, consider runtime validation (e.g., Zod) for critical data.
+7.  **Usage:**
+    *   Zustand store actions call API service functions.
+    *   Stores or components manage listener subscription lifecycles, ensuring unsubscription.
+
+

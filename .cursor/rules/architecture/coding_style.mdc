@@ -1,0 +1,18 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Coding Style Guidelines
+
+1.  **Code Formatting:** Use Prettier (configured to run on save or as a pre-commit hook).
+2.  **Linting:** Use ESLint.
+    *   **Non-Blocking:** ESLint errors should not block local development builds but should be enforced via pre-commit hooks or CI/CD pipeline.
+    *   **Feature Isolation:** No direct imports between different feature modules located in `src/features/`. For example, `src/features/auth/**` should not directly import from `src/features/orders/**`.
+    * Imports from src folder paths use aliases (e.g., '.src/feature/' becomes '@/feature/')
+3.  **Naming Conventions:**
+    *   **Files:** `snake_case.ts` or `snake_case.tsx` (e.g., `order_card.tsx`, `auth_service.ts`).
+    *   **Variables & Object Keys:** `camelCase` (e.g., `const orderList = [];`, `const userProfile = { userName: '...' };`).
+    *   **General Utility Functions:** `camelCase` (e.g., `function calculateTotal(items) {}`, `const formatCurrency = (value) => {};`).
+    *   **React Component Names (Function and Class):** `PascalCase` (e.g., `function OrderScreen() {}`, `class UserAvatar extends React.Component {}`).
+    *   **Class Names & Enums & Type Aliases/Interfaces:** `PascalCase` (e.g., `class ApiService {}`, `enum OrderStatus {}`, `type User = {}`).

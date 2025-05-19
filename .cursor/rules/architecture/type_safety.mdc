@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Type Safety (TypeScript) Guidelines
+
+1.  **Enable Strict Mode:** Ensure `strict: true` in `tsconfig.json`.
+2.  **Explicit Types:**
+    *   Declare return types for non-trivial/exported functions.
+    *   Use explicit types for variables where inference is unclear or needs enforcement.
+    *   **Avoid `any`.** Prefer `unknown` or specific types. If `any` is unavoidable, limit its scope.
+3.  **Type/Interface Definitions:**
+    *   Shared types in `src/types/`. Feature-specific types can be co-located.
+    *   Naming: `PascalCase`.
+    *   Prefer `interface` for object shapes, `type` for unions, intersections, primitives, etc.
+    *   Use `readonly` modifier for immutable properties (props, state).
+4.  **Enums:** Use `enum` for fixed sets of named constants (e.g., `OrderStatus`).
+5.  **Utility Types:** Leverage built-in types like `Partial`, `Required`, `Readonly`, `Pick`, `Omit`.
+6.  **Generics:** Use for reusable, type-safe components, functions, and types.
+7.  **Type Assertions (`as`):** Use sparingly, only when certain and TypeScript cannot infer. Prefer type guards.
+
+

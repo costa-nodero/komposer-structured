@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Rule type: always
+Description: 
+# After generating code, state confidence score
+# After generating code, list assumptions
