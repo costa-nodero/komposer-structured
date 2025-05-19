@@ -1,0 +1,14 @@
+---
+description: Identifying high level frameworks and libraries used
+globs: 
+alwaysApply: false
+---
+# Application Architecture
+
+- **Frontend Framework:** React Native with Expo
+- **UI Components:** Build custom reusable components.
+- **Navigation:** Use React Navigation.
+- **State Management:** Use Zustand.
+  - **Persistence:** Use Zustand's `persist` middleware with `AsyncStorage` for relevant stores.
+- **Data Persistence Layer:** Primarily managed via Zustand's `persist` middleware using `AsyncStorage`.
+- **Real-time Backend:** Firebase Realtime Database.

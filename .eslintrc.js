@@ -13,7 +13,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:import/typescript',
-    'prettier', // Make sure this is last to override other configs
+    'plugin:prettier/recommended',
   ],
   settings: {
     react: {
@@ -21,6 +21,14 @@ module.exports = {
     },
     'import/resolver': {
       typescript: {},
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      alias: {
+        map: [['@', './src']],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
   env: {
@@ -61,7 +69,7 @@ module.exports = {
             group: 'internal',
           },
         ],
-        pathGroupsExcludedImportTypes: ['react'],
+        pathGroupsExcludedImportTypes: ['react', 'builtin'],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
@@ -89,6 +97,9 @@ module.exports = {
 
     // --- React Native --- (Optional: Add eslint-plugin-react-native if needed)
     // e.g., 'react-native/no-inline-styles': 'warn',
+
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
   },
   // Rule overrides for specific file types
   overrides: [

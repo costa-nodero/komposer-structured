@@ -1,0 +1,25 @@
+---
+description: CRUD of test cases
+globs: 
+alwaysApply: false
+---
+# Testing Guidelines
+
+1.  **Frameworks:** React Native Testing Library (RNTL) + `@testing-library/react-native`.
+2.  **Levels:**
+    *   **Unit Tests:** Utils, Zustand stores (mock APIs/AsyncStorage), API services (mock Firebase SDK).
+    *   **Component Tests (RNTL):** Rendering, Interaction (fireEvent), Accessibility. Focus on user perspective, not implementation details.
+    *   **Integration Tests:** Test interactions between units (e.g., Screen -> Store -> Mock Service).
+3.  **Location & Naming:**
+    *   Co-locate tests with source files using `.test.tsx` / `.test.ts` suffix.
+    *   Use descriptive names for `describe` and `it` blocks.
+4.  **Mocking:**
+    *   Use `jest.fn()`, `jest.mock()`.
+    *   Mock Firebase SDK, AsyncStorage (if needed beyond Zustand persist mock), Navigation.
+    *   Mock or reset Zustand stores for component tests.
+5.  **Implementation:**
+    *   Use Arrange, Act, Assert (AAA) pattern.
+    *   Ensure test independence (use `beforeEach`/`afterEach` for cleanup/reset).
+    *   Avoid testing implementation details.
+6.  **Running:** Define `test`, `test:watch`, `test:coverage` scripts in `package.json`.
+7.  **Coverage:** Aim for reasonable coverage (e.g., 70-80%). Use reports to find untested areas, focusing on critical paths.

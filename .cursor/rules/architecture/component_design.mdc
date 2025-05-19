@@ -1,0 +1,20 @@
+---
+description: React or UI component styles, state and composition
+globs: 
+alwaysApply: false
+---
+# Component Design Guidelines
+
+-   **Single Responsibility Principle (SRP):** Components should have a clear, single purpose.
+-   **Props Definition:** All components must have clearly defined TypeScript interfaces for their props. Use `readonly` where appropriate.
+-   **State Management:**
+    *   Use `useState` for UI-specific local state.
+    *   Use Zustand for global or shared state.
+    *   Avoid unnecessary state; derive values where possible.
+-   **Component Structure:**
+    *   General reusable components go into `src/components/`.
+    *   Feature-specific, non-reusable components can live within `src/features/feature_name/components/`.
+    *   Consider co-locating styles with components (e.g., `component_name.styles.ts`).
+-   **Styling:** Use `StyleSheet.create` for component styles. Define and use a global theme (e.g., in `src/config` or `src/theme`) for consistency.
+-   **Composition:** Favor composition over inheritance.
+-   **Accessibility:** Design with accessibility in mind (`accessibilityLabel`, etc.).
