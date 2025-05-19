@@ -1,0 +1,36 @@
+---
+description: Creating, deleting or moving files. Feature isolation
+globs: 
+alwaysApply: false
+---
+# Project Structure
+
+```
+src
+|
++-- app               # application layer (routes/screens, main component, providers, router)
+|   |
+|   +-- routes        # Application screens/pages
+|   +-- app.tsx       # Main Expo app entry point
+|   +-- provider.tsx  # Root provider wrapper (Navigation, Zustand, Firebase)
+|   +-- router.tsx    # React Navigation configuration
+|
++-- assets            # Static files (images, fonts)
+|
++-- components        # Shared, reusable UI components
+|
++-- config            # Global configuration (Firebase config, env vars)
+|
++-- features          # Feature-specific modules (grouping components, services, hooks per feature)
+|
++-- hooks             # Shared custom React hooks
+|
++-- lib               # Reusable libraries/services (Firebase services, AsyncStorage wrappers)
+|
++-- stores            # Zustand global state stores (`feature_name_store.ts`)
+|
++-- testing           # Test utilities, mocks, setup
+|
++-- types             # Shared TypeScript type definitions
+|
++-- utils             # Shared utility functions

@@ -1,0 +1,25 @@
+---
+description: Coding and integrating Zustand stores
+globs: 
+alwaysApply: false
+---
+# State Management (Zustand) Guidelines
+
+1.  **Store Granularity & Location:**
+    *   Prefer multiple, feature-specific stores (e.g., `order_store.ts`, `user_store.ts`).
+    *   Location: `src/stores/`.
+    *   File Naming: `snake_case_store.ts`.
+2.  **Store Definition:**
+    *   Use `create` function.
+    *   Clearly define the state's TypeScript interface.
+    *   Define actions directly within the `create` call.
+3.  **State Immutability:** Always produce new state objects/arrays when updating (use spread `...`, `map`, `filter`, etc.).
+4.  **Actions:**
+    *   Naming: `camelCase`.
+    *   Keep actions focused. Handle async logic (loading/error states) within actions.
+5.  **Selectors:**
+    *   Use simple inline selectors: `useMyStore(state => state.someValue)`.
+    *   Select minimal state needed in components.
+6.  **Persistence:**
+    *   Use `persist` middleware from `zustand/middleware` for saving state to `AsyncStorage` where needed.
+    *   Configure `persist` with a unique `name` and `storage: createJSONStorage(() => AsyncStorage)`.
